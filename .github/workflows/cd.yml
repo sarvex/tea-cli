@@ -73,7 +73,7 @@ jobs:
     runs-on: ${{ matrix.platform.os }}
     name: ${{ matrix.platform.build-id }}
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: srcs
       - run: tar xJf tea-${{ needs.check.outputs.version }}.tar.xz --strip-components=1
@@ -126,7 +126,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
       - uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ needs.check.outputs.version }}
@@ -152,7 +152,7 @@ jobs:
     needs: [release]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: binaries
           path: binaries
